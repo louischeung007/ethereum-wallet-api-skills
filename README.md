@@ -81,6 +81,8 @@ The backend also exposes an MCP server at `/mcp` (Streamable HTTP, stateless) wi
 }
 ```
 
+> **Auth note:** The MCP transport is stateless, so the `X-API-Key` header must be sent on every request. Claude Code and Claude Desktop honor the `headers` field above. Clients without custom-header support (some Cursor versions) can still call the public tools (`validate_address`, `gas_price`); the authenticated tools require a client that sends headers.
+
 ## Security
 
 - The API Key is passed via the `X-API-Key` header and must never be committed to source control.

@@ -73,6 +73,8 @@ The same backend also exposes a Model Context Protocol (MCP) server at `/mcp` (S
 }
 ```
 
+> **Auth note:** The MCP transport is stateless, so the `X-API-Key` header must be sent on every request. Claude Code and Claude Desktop honor the `headers` field above. Clients without custom-header support (some Cursor versions) can still call the public tools (`validate_address`, `gas_price`); the authenticated tools require a client that sends headers.
+
 ## Initiate a transfer (requires separate authorization)
 
 The transfer endpoint `POST /api/transaction/transfer` is implemented, but for fund-safety reasons it is not enabled by default — contact the service provider to request access. It is intentionally not included in this skill's default script.
