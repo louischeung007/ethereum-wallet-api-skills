@@ -17,7 +17,7 @@ pull-request description. All copy targets a global, English-speaking audience.
 Fund-safe Ethereum wallet management for Claude Code — create wallets and read
 balances, gas, addresses, and transactions, via your own self-hosted API.
 
-## 3. Short description (≤ 160 chars)
+## 3. Short description (≤160 chars)
 
 Create Ethereum wallets, check balances, validate addresses, and query gas
 prices through your own wallet-manager API. Fund transfers require separate
@@ -75,11 +75,11 @@ export API_KEY="your-api-key"
 
 ## 8. Community listing entries
 
-A single ready-to-paste one-liner (replace `<owner>` with your GitHub username):
+A single ready-to-paste one-liner:
 
 - `ethereum-wallet-api` — Fund-safe Ethereum wallet management skill for Claude
   Code: create wallets, check balances, validate addresses, query gas, and list
-  transactions via a self-hosted API. [GitHub](https://github.com/<owner>/ethereum-wallet-api-skill)
+  transactions via a self-hosted API. [GitHub](https://github.com/louischeung007/ethereum-wallet-api-skills)
 
 Concrete PR targets (verify each repo's current contribution guide before
 opening a PR — the ecosystem moves quickly):
@@ -93,7 +93,7 @@ opening a PR — the ecosystem moves quickly):
 
 Suggested entry for awesome-mcp-servers:
 
-- [Ethereum Wallet Manager](https://github.com/<owner>/ethereum-wallet-api-skill) — Fund-safe Ethereum wallet MCP server (Streamable HTTP): create wallets, check balances, validate addresses, query gas prices, and list transactions. API-key authenticated.
+- [Ethereum Wallet Manager](https://github.com/louischeung007/ethereum-wallet-api-skills) — Fund-safe Ethereum wallet MCP server (Streamable HTTP): create wallets, check balances, validate addresses, query gas prices, and list transactions. API-key authenticated.
 
 ## 9. Reviewer notes / FAQ
 
