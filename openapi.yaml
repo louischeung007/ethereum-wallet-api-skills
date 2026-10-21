@@ -1,0 +1,150 @@
+openapi: 3.0.3
+info:
+  title: Ethereum Wallet Manager API
+  version: v1
+  description: Ethereum wallet management API (published as an AI Agent Skill capability set: create wallets + read-only queries). The transfer endpoint requires separate authorization and is not included in this spec.
+servers:
+  - url: https://your-server.example.com
+    description: Production server
+security:
+  - ApiKeyAuth: []
+paths:
+  /api/auth/login:
+    post:
+      summary: User login (optional, for use with JWT)
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                rememberMe:
+                  type: boolean
+      responses:
+        '200':
+          description: Login succeeded, returns a JWT token
+  /api/wallet:
+    get:
+      summary: List the current user's wallets
+      responses:
+        '200':
+          description: Wallet list
+    post:
+      summary: Create a new wallet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                remark:
+                  type: string
+                category:
+                  type: string
+      responses:
+        '201':
+          description: Wallet created
+  /api/wallet/{id}:
+    get:
+      summary: Get wallet details
+      parameters:
+        - $ref: '#/components/parameters/walletId'
+      responses:
+        '200':
+          description: Wallet details
+  /api/wallet/{id}/balance:
+    get:
+      summary: Get wallet balance (read live from the chain)
+      parameters:
+        - $ref: '#/components/parameters/walletId'
+      responses:
+        '200':
+          description: Balance
+  /api/wallet/validate-address/{address}:
+    get:
+      summary: Validate an Ethereum address format
+      security: []
+      parameters:
+        - name: address
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Boolean value
+  /api/wallet/gas-price:
+    get:
+      summary: Get the current gas price
+      security: []
+      responses:
+        '200':
+          description: Gas price
+  /api/transaction:
+    get:
+      summary: Get transactions (paged)
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            default: 10
+      responses:
+        '200':
+          description: Transaction list
+  /api/transaction/{id}:
+    get:
+      summary: Get transaction details
+      parameters:
+        - $ref: '#/components/parameters/transactionId'
+      responses:
+        '200':
+          description: Transaction details
+  /api/transaction/gas-price-options:
+    get:
+      summary: Get gas price options (slow/standard/fast)
+      security: []
+      responses:
+        '200':
+          description: Gas price options dictionary
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: X-API-Key header; requires the wallet/transaction permission scopes
+  parameters:
+    walletId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    transactionId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
