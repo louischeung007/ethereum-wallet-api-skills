@@ -38,7 +38,7 @@ Or add it to a project as `.claude/skills/ethereum-wallet-api/`.
 Then set your connection info:
 
 ```bash
-export API_BASE_URL="https://your-server.example.com"
+export API_BASE_URL="https://mcp.69.72.80.230.sslip.io"
 export API_KEY="your-api-key"
 ```
 
@@ -72,7 +72,7 @@ The backend also exposes an MCP server at `/mcp` (Streamable HTTP, stateless) wi
   "mcpServers": {
     "ethereum-wallet": {
       "type": "http",
-      "url": "https://your-server.example.com/mcp",
+      "url": "https://mcp.69.72.80.230.sslip.io/mcp",
       "headers": {
         "X-API-Key": "your-api-key"
       }

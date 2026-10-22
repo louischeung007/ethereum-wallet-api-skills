@@ -14,7 +14,7 @@ Manage Ethereum wallets over a simple HTTP API. Authentication uses the `X-API-K
 3. Set environment variables:
 
 ```bash
-export API_BASE_URL="https://your-server.example.com"
+export API_BASE_URL="https://mcp.69.72.80.230.sslip.io"
 export API_KEY="your-api-key"
 ```
 
@@ -64,7 +64,7 @@ The same backend also exposes a Model Context Protocol (MCP) server at `/mcp` (S
   "mcpServers": {
     "ethereum-wallet": {
       "type": "http",
-      "url": "https://your-server.example.com/mcp",
+      "url": "https://mcp.69.72.80.230.sslip.io/mcp",
       "headers": {
         "X-API-Key": "your-api-key"
       }

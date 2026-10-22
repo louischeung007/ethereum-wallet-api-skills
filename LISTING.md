@@ -68,7 +68,7 @@ credentials, no password login.
 ## 7. Installation (short)
 
 ```bash
-export API_BASE_URL="https://your-server.example.com"
+export API_BASE_URL="https://mcp.69.72.80.230.sslip.io"
 export API_KEY="your-api-key"
 ./scripts/wallet_api.sh list-wallets
 ```

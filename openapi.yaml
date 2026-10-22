@@ -4,7 +4,7 @@ info:
   version: v1
   description: Ethereum wallet management API (published as an AI Agent Skill capability set: create wallets + read-only queries). The transfer endpoint requires separate authorization and is not included in this spec.
 servers:
-  - url: https://your-server.example.com
+  - url: https://mcp.69.72.80.230.sslip.io
     description: Production server
 security:
   - ApiKeyAuth: []
